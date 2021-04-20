@@ -1,0 +1,183 @@
+ /* Estrutura */
+
+ * {
+     margin: 0;
+     padding: 0;
+ }
+ body {
+     font-family: Helvetica, "Trebuchet MS", sans-serif; /* CONJUNTO DE FONTES QUE SERÃO ULTILIZADAS NO CORPO DO SITE*/
+     background: white url(../imagens/bg.png); /*IMAGEM DE FUNDO DO BODY*/
+     margin: 15px; /*BORDA EM VOLTA DO CORPO DO SITE*/
+ }
+#container { /* CONTAINER QUE DEFINE A CONFIGURAÇÃO DO TOPO QUE ESTÁ DENTRO DELA*/
+    background: #ede9cc url(../imagens/bg-container.png) top center repeat-y; /* ESSA IMAGEM VAI FICAR POR TRAZ DOS ELEMENTOS DA ÁREA PRINCIPAL E ÁREA LATERAL USANDO A TÉCNICA DE BARRA FALSA, PARA DELIMITAR E FACILITAR O POSICIONAMENTO DOS CONTEÚDOS NESSAS ÁREAS. VEREMOS LOGO MAIS ABAIXO.*/
+    margin: 0 auto; /* ISSO FAZ COM QUE O CONTAINER FIQUE CENTRALIZADO PRA RECEBER AS CONFIGURAÇÕES A SEGUIR, ORGANIZANDO LARGURA DOS ITENS DO TOPO PRA QUE A SOBREPOSIÇÃO UM AO OUTRO NÃO SOFRA ALTERAÇÃO DEPENDENDO DA LARGURA DO NAVEGADOR*/
+    min-width: 740px; /* TAMANHO MÍNIMO PRA QUANDO O NAVEGADOR FOR REDUZIDO, ELA VAI PARAR DE REDUZIR QUANDO A LARGURA ATINGOR ESSA CONFIGURAÇÃO*/
+    max-width: 1180px ; /* ISSO TAMBEM AJUDA PRA QUANDO EXISTIR UMA LARGURA MÁXIMA DO NAVEGADOR, OU SEJA, NA LARGURA DOS ITENS ELES PARAM NUMA DETERMINADA LARGURA. ISSO TAMBÉM AJUDA DA EXIBIÇÃO DE TEXTOS DEPENDENDO DA LARGURA DO NAVEGADOR PARA QUE ELE NÃO FIQUE LARGO DEMAIS OU MÍNIMO DEMAIS. OU SEJA, O CONTAINER VAI FICAR CENTRALIZADO QUANDO O NAAVGADOR TIVER UMA LARGURA MUITO ALTA, NESSE CASO, MAIOR QUE 1180px*/
+
+}
+#topo {
+    position: relative; /* ISSO AJUDA A DEFINIR AS POSIÇÕES DO LOGO E MENU PARA QUE FIQUEM UMA AO LADO DA OUTRA NAS PRÓXIMAS CONFIGURAÇÕES DE "AREA-LOGO" E "AREA-MENU" ABAIXO.*/
+    background: #DBCD87;
+    height: 15.4em; /* ALTURA DO TOPO*/
+    min-height: 250px;/* O TAMANHO MÍNIMO DO TOPO PARA REDIMENCIONAMENTO ADAPTADO DA TELA*/
+}
+
+/*  O Z INDEX CONFIGURA UMA ÁREA DOBRE A OUTRA FACILITANDO A RESPONSIVIDADE ONDE UMA ÁREA PODE SOBREPOR A OUTRA*/
+
+#area-logo { /*CONFIGURAÇÃO DA ÁREA DO LOGO A ESQUERDA DO TOPO*/
+    position: absolute; /*ISSO FAZ COM QUE OS OBJETOS FLUTUEM PRA FICAR UM AO LADO DO OUTRO LOGO E MENU*/
+    background: url(../imagens/topo-imagem-principal.png) no-repeat; /* IMAGEM DE FUNDO PARA A ÁREA DO LOGO DENTRO DO TOPO NO CONTAINER. O IDEAL É QUE ESSA IMAGEM SEJA GRANDE O SUFICIENTE PARA QUE ELA CHEGUE ATÉ O FIM DO ESPAÇAMENTO LATERAL POIS AQUI TEREMOS UMA SOBREPOSIÇÃO DO MENU, ENTÃO O MENU ESCONDERIA PARTE DA IMAGEM MAS DEPENDENDO DA EXPANSÃO, O FINAL DELA PODE APARECER SE O NAVEGADOR ESTIVER MUITO LARGO. PODE TAMBÉM DEFINIR UMA LARGURA MÍNIMA USANDO UMA IMAGEM DE TAMANHO NORMAL, ASSIM COM A ESPANSÃO O MENU QUE ESTÁ NA FRENTE DEPENDENDO DA LARGURA, NÃO MOSTRARIA O FINAL DA IMAGEM DE LOGO*/
+    width: 100%;
+    height: 250px;
+    top: 0; /* FAZ COM QUE FIQUE COLADA NO TOPO FIXO, ISSO AJUDA DA RESPONSIVIDADE*/
+    left: 0; /* FAZ COM QUE FIQUE COLADA A ESQUERDA FIXO, ISSO AJUDA DA RESPONSIVIDADE*/
+    z-index: 1; /*FAZ COM QUE ESSA UMAGEM FIQUE POR BAIXO DO MENU, DESLIZANDO EMBAIXO DELE*/
+}
+.logo a { /*FORMATAÇÃO DO LINK DO LOGO QUE ESTÁ DENTRO DA AREA-LOGO NO TOPO*/
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 3; /* FAZ COM QUE O LINK FIQUE POR CIMA DA AREA DE LOGO.*/
+    background: url(../imagens/logo.png) no-repeat; /*IMAGEM DO LOGO SERVINDO COMO UM LINK JÁ QUE ELE ESTÁ DENTRO DO LONK "a"*/
+    width: 151px; /* POSIÇÃO DA IMAGEM DENTRO DO LOGO NO TOPO*/
+    height: 66px; /* POSIÇÃO DA IMAGEM DENTRO DO LOGO NO TOPO*/
+    text-indent: -3000px; /* FAZ COM QUE O TEXTO SEJA MOVIDO A ESQUERDA DO SITE PARA QUE ELE SIRVA COM ACESSIBILIDADE CASO POR ALGUM MOTIVO O CSS NÃO SEJA CARREGADO.*/
+}
+#area-menu { /* CONFIGURAÇÃO DA ÁREA DE MENU A DIREITA DO TOPO*/
+    position: absolute; /*ISSO FAZ COM QUE OS OBJETOS FLUTUEM PRA FICAR UM AO LADO DO OUTRO LOGO E MENU*/
+    background: url(../imagens/topo-imagem-lateral.png) no-repeat;
+    width: 450px;
+    height: 250px;
+    top: 0; /* FAZ COM QUE O MENU FIQUE COLADO NO TOPO*/
+    right: 0; /* FAZ COM QUE O MENU FIQUE COLADO A DIREITA NO TOPO*/
+    z-index: 2; /* FAZ COM QUE ESSA IMAGEM FIQUE POR CIMA DA IMAGEM DE LOGO DESLIZANDO SOBRE ELA*/
+}
+#conteudo-menu { /* ESSA CONFIGURAÇÃO FAZ COM QUE SEJA ORGANIZADO AS POSIÇÕES DOS ELEMENTOS E LINKS DENTRO DA AREA-MENU ALINHADOS A DIREITA*/
+    margin-left: 90px; /* FAZ COM QUE OS ELEMENTOS DE MENU SEJAM EMPURRADOS PARA A POSIÇÃO EM QUE EU QUERO QUE ELAS FIQUEM DENTRO DA AREA-MENU CONFORME AS CONFIGURAÇÕES ABAIXO DE MARGIM E PADDING*/
+    margin-right: 1px;
+    padding-top: 1px;
+}
+#menu-locais {
+    border-bottom: 1px solid #b5ab56;
+    border-top: 1px solid #b5ab56; /*BORDA SUPERIOR*/
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 0.7em;
+    color: #8b8448;
+    
+}
+#menu-locais .locais {
+    float: left; /*FAZ O OBJETO FLUTUAR A ESQUERDA*/
+    line-height: 2.1em; /*CENTRALIZA TODOS OS ELEMENTOS */
+}
+
+a {
+    text-decoration: none; /* PARA TIRAR O SUBLINHADO DO LINK*/
+}
+a.reserva { /* ESSA FORMATAÇÃO DENTRO DO LINK COM A CLASS PODERIA SER USADA EM OUTROS LOCAIS NA PÁGINA*/
+    text-transform: uppercase; /* DEIXA O TEXTO MAIÚSCULO*/
+    background: #a29750;
+    color: #fff5b0;
+    padding: 5px 10px; /* EM CIMA E NA LATERAL*/
+    float: right; /* FLUTUAR A DIREITA*/
+}
+
+
+
+/* BARRA DE NAVEGAÇÃO VERTICAL*/
+#menu {
+    margin-top: 15px; /* ESPAÇAMENTO DE ONDE O MENU VAI COMEÇAR*/
+}
+ul { /*FORMATAÇÃO PADRÃO PARA A ul E TIRA OS MARCADORES DOS LINKS DA LISTA*/
+    list-style: none;
+}
+ul#navegacao {
+    float: left; /* FAZ O MENU VERTICAL FLUTUAR A ESQUERDA*/
+}
+ul#navegacao a { /* FORMATAÇÃO DOS LINKS DENTRO DA LISTA DE LINKS*/
+    text-transform: uppercase;
+    font-size: 0.8em;
+    padding: 5px;
+    color: #6e672c;
+    line-height: 30px; /* ESPAÇAMENTO ENTRE OS ELEMENTOS DA LISTA DE LINKS VERTICAL*/
+}
+ul#navegacao a:hover { /* EFEITO HOVER PRA QUANDO O MOUDE PASSAR PELO ELEMENTO */
+    background: #fdf6be;
+}
+.depoimento { /* DEFINE A POSIÇÃO DO ELEMENTO FLUTUANTE A DIREITA*/
+    width: 226px;
+    height: 164px;
+    float: right;
+}
+
+
+
+/* ÁREA DE CONTEÚDOS*/
+#area-principal {
+    float: left; /* PARA FLUTUAR A ESQUERDA DA ÁREA*/
+    width: 50%; /* PORCENTAGEM PARA DEIXAR ESSA ÁREA LÍQUIDA*/
+    background: url(../imagens/bg-area-principal.png) top left repeat-x; /*IMAGEM DE FUNDO DA ÁREA PRINCIPAL PARA AJUDAR NA FORMATAÇÃO E POSIÇÃO DOS CONTEÚDOS*/
+    padding: 15px 0; /*POSIÇÃO DOS CONTEÚDOS DENTRO DA ÁREA PRINCIPAL, LEMBRANDO QUE O H2 TAMBÉM TERÁ UM PADDING PRÓRPIO DEIXANDO ESSE ESPAÇAMENTO UM POUCO MAIOR*/
+}
+
+#area-lateral {
+    float: right; /* PARA FLUTUAR A DIREITA DA ÁREA*/
+    width: 50%; /* PORCENTAGEM PARA DEIXAR ESSA ÁREA LÍQUIDA*/
+    background: url(../imagens/bg-area-lateral.png) top left repeat-x; /*IMAGEM DE FUNDO DA ÁREA LATERAL PARA AJUDAR NA FORMATAÇÃO E POSIÇÃO DOS CONTEÚDOS*/
+    padding: 20px 0; /*POSIÇÃO DOS CONTEÚDOS DENTRO DA ÁREA LATERAL, LEMBRANDO QUE AQUI NÃO TEM O H2, ENTÃO O ESPAÇAMENTO SUPERIOR É MAIOR E DEPOIS VEM O ESPAÇAMENTO "0" PARA DEFINIR O ESPAÇAMENTO LATERAL DESTE CONTEÚDO SEJA ZERO E NÃO SAIA DA FORMATAÇÃO. SE O "0" NÃO FOR DEFINIDO, ESTE CONTEÚDO VAI PRA BAIXO. ISSO É IMPORTANTE!*/ 
+}
+.conteudo {
+    margin: auto; /* FAZ COM QUE FIQUE CENTRALIZADO*/
+    width: 90%; /* FAZ COM QUE O ESPAÇO DISPONÍVEL PARA ESTE CONTEÚDO SEJA LIMITADO A 90% DO ESPAÇO TOTAL DA ÁREA DE FORMA LIQUIDA*/
+
+}
+#rodape {
+    clear: both;
+    text-align: center;
+    background: #fff url(../imagens/bg-rodape.png) repeat-x top; /*REPETIR HORIZONTALMENTE A PARTIR DO TOPO*/
+    padding: 15px 0 15px 0;
+    color: #7d7640; /*DEFINE A COR DO TEXTO DO RODAPÉ*/
+}
+
+
+/*FORMATAÇÕES DE TEXTOS*/
+h2 {
+    color: #7d7640;
+    font-size: 1.1em;
+    padding: 5px; /*QUE VAI SER SOMADO AO "PADDING" DA ÁREA PRINCIPAL, TOTALIZANDO 20px*/
+}
+
+
+p {
+    font-size: 1em; /*TAMANHO PROPORCIONAL*/
+    margin-bottom: 10px; /*ESPAÇAMENTO ENTRE OS PARÁGRAFOS*/
+}
+
+/*FORMATAÇÕES AREA LATERALS*/
+
+#beneficios li {
+    padding: 8px;
+    border-bottom: 1px solid #f3efcd; /*BORDA INFERIOR*/
+    height: 6em;
+}
+#beneficios li a img {
+    float: left; /*PARA FLUTUAR A IMAGEM A ESQUERDA DA ÁREA*/
+    margin-right: 8px; /*MARGEM A ESQERDA PARA QUE POSSA SER SEPARADA A IMAGEM DO PARÁGRAFO E H3*/
+}
+
+#beneficios li a p {
+    font-size: 0.8em;
+    color: #000;
+}
+
+#beneficios li a h3{
+    font-size: 1em;
+    color: #615b2d;
+    padding: 5px 0;
+    background: url(../imagens/ornamento.png) no-repeat center right;
+}
+#beneficios li:hover {
+    background: #f3f6d6;
+    cursor: pointer;
+}
